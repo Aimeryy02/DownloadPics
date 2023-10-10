@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Galerie d'images</title>
+  <style>
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .image-container {
+      margin: 10px;
+      text-align: center;
+    }
+    img {
+      max-width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="gallery">
+    <!-- Boucle pour afficher chaque image et son bouton de téléchargement -->
+    <% imageFiles.forEach(function(image) { %>
+      <div class="image-container">
+        <img src="../uploads/<%= image %>" alt="<%= image %>" width="200">
+        <a href="/download/<%= image %>" download="<%= image %>"><button>Télécharger</button></a>
+      </div>
+    <% }); %>
+  </div>
+</body>
+</html>

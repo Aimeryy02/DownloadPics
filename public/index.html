@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Galerie d'images</title>
+</head>
+<body>
+  <h1>Galerie d'images</h1>
+  <div id="gallery-content">
+    <!-- Le contenu EJS sera affiché ici -->
+  </div>
+
+  <script>
+    // Charger le contenu EJS en utilisant fetch
+    fetch('/gallery')
+      .then(response => response.text())
+      .then(data => {
+        // Injecter le contenu EJS dans la div #gallery-content
+        document.getElementById('gallery-content').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Erreur lors du chargement du contenu EJS', error);
+      });
+  </script>
+</body>
+</html>
